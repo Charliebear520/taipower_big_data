@@ -345,6 +345,7 @@ async def copy_files_to_db(file_list):
     file_processing_status["message"] = "All files processed successfully"
     file_processing_status["end_time"] = datetime.fromtimestamp(end_time, tz=timezone.utc).isoformat()
     print(f"解壓縮與搬動資料到資料庫，總花費 {end_time - start_time:.3f} seconds.", flush=True)
+    return {"status": "success", "message": "資料已成功寫入資料庫"}
 
 
 @app.get("/get_file_processing_status/")
